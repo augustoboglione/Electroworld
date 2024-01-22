@@ -305,30 +305,9 @@ footer p {
 }
 
 /*hover*/
-@keyframes hover {
-  0% {
-    color: white;
-  }
-  100% {
-    color: black;
-  }
+.nav-link, .boton, .fa-brands {
+  transition: color 0.5s;
 }
-@keyframes whatsapp {
-  0% {
-    background-color: #25D366;
-    color: white;
-  }
-  100% {
-    background-color: white;
-    color: black;
-  }
-}
-.nav-link:not(.act):hover, .boton:hover, .fa-brands:hover {
-  animation-name: hover;
-  animation-duration: 1s;
-  animation-iteration-count: 1;
-}
-
 .nav-link:hover, .boton:hover, .fa-brands:hover {
   color: black;
 }
@@ -337,8 +316,12 @@ footer p {
   animation-name: whatsapp;
 }
 
+.fa-brands {
+  transition: all 0.5s;
+}
 .fa-brands:hover {
   background-color: white;
+  color: black;
 }
 
 /*# sourceMappingURL=styles.css.map */

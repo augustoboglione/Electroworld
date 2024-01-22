@@ -9,6 +9,8 @@ $instagram: #D62976;
 $tablet: 768px;
 $pc: 992px;
 
+$hover-time: 0.5s;
+
 @mixin size($width, $padding, $margin) {
     width: $width;
     padding: $padding;
@@ -333,45 +335,21 @@ footer {
 
 /*hover*/
 
-@keyframes hover {
-    0% {
-        color: white;
-    }
-
-    100% {
+.nav-link, .boton, .fa-brands {
+    transition: color $hover-time;
+    &:hover {
         color: black;
     }
-}
-
-
-@keyframes whatsapp {
-        0% {
-            background-color: $whatsapp;
-            color: white;
-        }
-    
-        100% {
-            background-color: white;
-            color: black;
-        }
-    
-    }
-    
-
-.nav-link:not(.act):hover, .boton:hover, .fa-brands:hover {
-    animation-name: hover;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-}
-
-.nav-link:hover, .boton:hover, .fa-brands:hover {
-    color: black;
 }
 
 .fa-whatsapp:hover {
     animation-name: whatsapp;
 }
 
-.fa-brands:hover {
-    background-color: white;
+.fa-brands {
+    transition: all $hover-time;
+    &:hover {
+        background-color: white;
+        color: black;
+    }
 }
