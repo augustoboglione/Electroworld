@@ -2,10 +2,17 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css");
 
 $background: #00A0A0;
+$facebook: #1877F2;
+$whatsapp: #25D366;
+$instagram: #D62976;
 
-@mixin size($width, $padding) {
+$tablet: 768px;
+$pc: 992px;
+
+@mixin size($width, $padding, $margin) {
     width: $width;
     padding: $padding;
+    margin: $margin;
 }
 
 * {
@@ -61,7 +68,7 @@ header {
     color: black;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: $tablet) {
     header {
         position: sticky;
         top: 0;
@@ -72,7 +79,7 @@ header {
     }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: $pc) {
     header img {
         width: 120px;
     }
@@ -178,7 +185,7 @@ p {
     }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: $tablet) {
     .cuadros {
         flex-direction: row;
         justify-content: space-around;
@@ -255,7 +262,7 @@ p {
     }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: $tablet) {
     .productos img {
         width: 50%;
     }
@@ -309,11 +316,11 @@ footer {
     width: 40px;
     font-size: 40px;
     padding: 10px;
-    background-color: #25D366;
+    background-color: $whatsapp;
 }
 
 .fa-facebook-f {
-    background-color: #1877F2;
+    background-color: $facebook;
 }
 
 .fa-x-twitter {
@@ -321,13 +328,48 @@ footer {
 }
 
 .fa-instagram {
-    background-color: #D62976;
+    background-color: $instagram;
 }
 
 /*hover*/
 
+@keyframes hover {
+    0% {
+        color: white;
+    }
+
+    100% {
+        color: black;
+    }
+}
+
+
+@keyframes whatsapp {
+        0% {
+            background-color: $whatsapp;
+            color: white;
+        }
+    
+        100% {
+            background-color: white;
+            color: black;
+        }
+    
+    }
+    
+
+.nav-link:not(.act):hover, .boton:hover, .fa-brands:hover {
+    animation-name: hover;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+
 .nav-link:hover, .boton:hover, .fa-brands:hover {
     color: black;
+}
+
+.fa-whatsapp:hover {
+    animation-name: whatsapp;
 }
 
 .fa-brands:hover {

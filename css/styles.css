@@ -305,8 +305,36 @@ footer p {
 }
 
 /*hover*/
+@keyframes hover {
+  0% {
+    color: white;
+  }
+  100% {
+    color: black;
+  }
+}
+@keyframes whatsapp {
+  0% {
+    background-color: #25D366;
+    color: white;
+  }
+  100% {
+    background-color: white;
+    color: black;
+  }
+}
+.nav-link:not(.act):hover, .boton:hover, .fa-brands:hover {
+  animation-name: hover;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+
 .nav-link:hover, .boton:hover, .fa-brands:hover {
   color: black;
+}
+
+.fa-whatsapp:hover {
+  animation-name: whatsapp;
 }
 
 .fa-brands:hover {
