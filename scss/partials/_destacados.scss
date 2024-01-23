@@ -1,0 +1,42 @@
+.destacados {
+    background-color: black;
+    color: white;
+    display: grid;
+    grid-template-rows: auto repeat(3, 400px);
+    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-areas:
+    'tit tit tit'
+    'img1 img1 txt1'
+    'txt2 img2 img2'
+    'img3 img3 txt3';
+    gap: 20px 15px;
+
+    h2 {
+        padding-top: 30px;
+        padding-bottom: 10px;
+        text-align: center;
+        grid-area: tit;
+    }
+}
+
+@for $i from 1 through 3 {
+    .img#{$i} {
+        height: 100%;
+        background-size: cover;
+        background-position: center;    
+        background-image: url(../img/prod#{$i}.jpg);
+        grid-area: img#{$i};
+    }
+
+    .txt#{$i} {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;    
+        grid-area: txt#{$i};
+
+        @if $i % 2 == 0 {
+            align-items: flex-end;
+            text-align: right;
+        }
+    }
+}

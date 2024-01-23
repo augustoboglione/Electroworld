@@ -1,17 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css");
-* {
-  box-sizing: content-box;
-  font-family: "Jost", sans-serif;
-}
-
-body {
-  margin: 0;
-}
-
 /*header*/
 header {
   background-color: #00A0A0;
+  background-image: linear-gradient(to bottom right, #00A0A0, red);
   padding: 15px;
   display: flex;
   justify-content: space-between;
@@ -68,6 +60,139 @@ header img {
     font-size: 20px;
   }
 }
+/*footer*/
+footer {
+  color: white;
+  background-color: #00A0A0;
+  padding: 15px;
+  display: sticky;
+  bottom: 0;
+}
+footer p {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.fa-brands {
+  color: white;
+  width: 20px;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.fa-whatsapp {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  width: 40px;
+  font-size: 40px;
+  padding: 10px;
+  background-color: #25D366;
+}
+
+.fa-facebook-f {
+  background-color: #1877F2;
+}
+
+.fa-x-twitter {
+  background-color: black;
+}
+
+.fa-instagram {
+  background-color: #D62976;
+}
+
+.destacados {
+  background-color: black;
+  color: white;
+  display: grid;
+  grid-template-rows: auto repeat(3, 400px);
+  grid-template-columns: 2fr 1fr 2fr;
+  grid-template-areas: "tit tit tit" "img1 img1 txt1" "txt2 img2 img2" "img3 img3 txt3";
+  gap: 20px 15px;
+}
+.destacados h2 {
+  padding-top: 30px;
+  padding-bottom: 10px;
+  text-align: center;
+  grid-area: tit;
+}
+
+.img1 {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../img/prod1.jpg);
+  grid-area: img1;
+}
+
+.txt1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  grid-area: txt1;
+}
+
+.img2 {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../img/prod2.jpg);
+  grid-area: img2;
+}
+
+.txt2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  grid-area: txt2;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.img3 {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../img/prod3.jpg);
+  grid-area: img3;
+}
+
+.txt3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  grid-area: txt3;
+}
+
+/*hover*/
+.nav-link, .button, .fa-brands {
+  transition: color 0.5s;
+}
+.nav-link:hover, .button:hover, .fa-brands:hover {
+  color: black;
+}
+
+.fa-brands {
+  transition: all 0.5s;
+}
+.fa-brands:hover {
+  background-color: white;
+  color: black;
+}
+
+* {
+  box-sizing: content-box;
+  font-family: "Jost", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
 /*main*/
 main {
   padding: 15px 0;
@@ -99,7 +224,7 @@ p {
   margin: 0;
 }
 
-.boton {
+.button {
   text-transform: uppercase;
   text-decoration: none;
   color: white;
@@ -164,70 +289,6 @@ p {
     width: 75%;
   }
 }
-/*main index destacados*/
-.destacados {
-  background-color: black;
-  color: white;
-  display: grid;
-  grid-template-rows: auto repeat(3, 400px);
-  grid-template-columns: 2fr 1fr 2fr;
-  grid-template-areas: "tit tit tit" "img1 img1 txt1" "txt2 img2 img2" "img3 img3 txt3";
-  gap: 20px 15px;
-}
-.destacados h2 {
-  padding-top: 30px;
-  padding-bottom: 10px;
-  text-align: center;
-  grid-area: tit;
-}
-
-.img1 {
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-image: url(../img/prod1.jpg);
-  grid-area: img1;
-}
-
-.txt1 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  grid-area: txt1;
-}
-
-.img2 {
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-image: url(../img/prod2.jpg);
-  grid-area: img2;
-}
-
-.txt2 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  grid-area: txt2;
-  align-items: flex-end;
-  text-align: right;
-}
-
-.img3 {
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-image: url(../img/prod3.jpg);
-  grid-area: img3;
-}
-
-.txt3 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  grid-area: txt3;
-}
-
 /*main productos*/
 .productos div {
   width: 100%;
@@ -259,69 +320,4 @@ textarea {
   margin: 15px;
 }
 
-/*footer*/
-footer {
-  color: white;
-  background-color: #00A0A0;
-  padding: 15px;
-  display: sticky;
-  bottom: 0;
-}
-footer p {
-  text-align: center;
-  margin-bottom: 0;
-}
-
-.fa-brands {
-  color: white;
-  width: 20px;
-  font-size: 20px;
-  text-align: center;
-  text-decoration: none;
-  padding: 5px;
-  border-radius: 50%;
-}
-
-.fa-whatsapp {
-  position: fixed;
-  right: 25px;
-  bottom: 25px;
-  width: 40px;
-  font-size: 40px;
-  padding: 10px;
-  background-color: #25D366;
-}
-
-.fa-facebook-f {
-  background-color: #1877F2;
-}
-
-.fa-x-twitter {
-  background-color: black;
-}
-
-.fa-instagram {
-  background-color: #D62976;
-}
-
-/*hover*/
-.nav-link, .boton, .fa-brands {
-  transition: color 0.5s;
-}
-.nav-link:hover, .boton:hover, .fa-brands:hover {
-  color: black;
-}
-
-.fa-whatsapp:hover {
-  animation-name: whatsapp;
-}
-
-.fa-brands {
-  transition: all 0.5s;
-}
-.fa-brands:hover {
-  background-color: white;
-  color: black;
-}
-
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=style.css.map */

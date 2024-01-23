@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css");
+
+$background: #00A0A0;
+$facebook: #1877F2;
+$whatsapp: #25D366;
+$instagram: #D62976;
+
+$tablet: 768px;
+$pc: 992px;
+
+$hover-time: 0.5s;
+
+@import 'partials/headerFooter';
+@import 'partials/destacados';
+@import 'partials/hover';
+
+@mixin size($width, $padding, $margin) {
+    width: $width;
+    padding: $padding;
+    margin: $margin;
+}
+
+* {
+    box-sizing: content-box;
+    font-family: 'Jost', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+/*main*/
+
+main {
+    padding: 15px 0;
+}
+
+%title {
+    text-transform: uppercase;
+    margin: 0;
+    padding: 15px;
+}
+
+h1 {
+    @extend %title;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+h2 {
+    @extend %title;
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+h3 {
+    @extend %title;
+    font-size: 20px;
+    padding: 0 15px;
+}
+
+p {
+    padding: 15px;
+    margin: 0;
+}
+
+.button {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    background-color: $background;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 50px;
+    border-width: 0;
+    cursor: pointer;
+}
+
+/*main index banner*/
+
+.banner {
+    background-image: url(../img/banner.jpg);
+    background-size: 1200px;
+    background-position: top;
+    background-repeat: no-repeat;
+    height: 400px;
+    text-align: center;
+    color: white;
+
+    h1 {
+        padding: 15px 0 0 0;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .banner {
+        background-size: 100%;
+    } 
+}
+
+/*main index cuadros*/
+
+.cuadros {
+    width: 100%;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+            width: 50%;
+        }
+    
+        h3 {
+            font-weight: bold;
+        }
+    }
+}
+
+@media only screen and (min-width: $tablet) {
+    .cuadros {
+        flex-direction: row;
+        justify-content: space-around;
+
+        div {
+            width: 33%;
+
+            img {
+                width: 75%;
+            }
+        }
+    }
+}
+
+/*main productos*/
+
+.productos {
+    div {
+        width: 100%;
+        padding: 15px 0;
+    
+        &:first-child {
+            padding-top: 0;
+        }
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: $tablet) {
+    .productos img {
+        width: 50%;
+    }
+}
+
+/*main mapa*/
+
+.mapa {
+    width: 100%;
+}
+
+/*form*/
+
+form div {
+    padding: 15px;
+}
+
+textarea {
+    margin: 15px;
+}
+

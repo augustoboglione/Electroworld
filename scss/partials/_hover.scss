@@ -1,0 +1,16 @@
+/*hover*/
+
+.nav-link, .button, .fa-brands {
+    transition: color $hover-time;
+    &:hover {
+        color: black;
+    }
+}
+
+.fa-brands {
+    transition: all $hover-time;
+    &:hover {
+        background-color: white;
+        color: black;
+    }
+}
