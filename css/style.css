@@ -11,7 +11,7 @@ body {
 
 /*header*/
 header {
-  background-image: linear-gradient(to bottom right, #00A0A0, #005050);
+  background-image: linear-gradient(306deg, rgb(0, 212, 255) 0%, rgb(0, 160, 160) 31%, rgb(2, 0, 36) 100%);
   padding: 15px;
   display: flex;
   justify-content: space-between;
@@ -71,7 +71,7 @@ header img {
 /*footer*/
 footer {
   color: white;
-  background-image: linear-gradient(to bottom right, #00A0A0, #005050);
+  background-image: linear-gradient(126deg, rgb(0, 212, 255) 0%, rgb(0, 160, 160) 31%, rgb(2, 0, 36) 100%);
   padding: 15px;
   display: sticky;
   bottom: 0;
@@ -156,14 +156,37 @@ p {
   cursor: pointer;
 }
 
+@keyframes rise {
+  from {
+    padding-top: 50px;
+    opacity: 0;
+  }
+  to {
+    padding-top: 0;
+    opacity: 1;
+  }
+}
+@keyframes grow {
+  from {
+    padding-top: 50px;
+    background-size: 1400px;
+    opacity: 0;
+  }
+  to {
+    padding-top: 0;
+    background-size: 100%;
+    opacity: 1;
+  }
+}
 .banner {
+  animation: rise 2s;
   background-image: url(../img/banner.jpg);
-  background-size: 1200px;
   background-position: top;
   background-repeat: no-repeat;
   height: 400px;
   text-align: center;
   color: white;
+  background-size: 1400px;
 }
 .banner h1 {
   padding: 15px 0 0 0;
@@ -171,6 +194,7 @@ p {
 
 @media only screen and (min-width: 1200px) {
   .banner {
+    animation: grow 2s;
     background-size: 100%;
   }
 }

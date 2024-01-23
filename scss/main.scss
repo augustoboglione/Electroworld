@@ -7,8 +7,10 @@ $facebook: #1877F2;
 $whatsapp: #25D366;
 $instagram: #D62976;
 
-$gradient: linear-gradient(to bottom right, $background, $background2);
-$gradient2:linear-gradient(to top left, $background, $background2);
+$gradient: linear-gradient(306deg, rgba(0,212,255,1) 0%, rgba(0,160,160,1) 31%, rgba(2,0,36,1) 100%);
+$gradient2: linear-gradient(126deg, rgba(0,212,255,1) 0%, rgba(0,160,160,1) 31%, rgba(2,0,36,1) 100%);
+$button: linear-gradient(to bottom right, $background, $background2);
+$buttonClick:linear-gradient(to top left, $background, $background2);
 
 $tablet: 768px;
 $pc: 992px;

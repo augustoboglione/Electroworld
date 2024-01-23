@@ -1,11 +1,37 @@
+@keyframes rise {
+    from {
+        padding-top: 50px;
+        opacity: 0;
+    }  
+
+    to {
+        padding-top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes grow {
+    from {
+        padding-top: 50px;
+        background-size: 1400px;
+        opacity: 0;
+    }
+    to {
+        padding-top: 0;
+        background-size: 100%;
+        opacity: 1;
+    }
+}
+
 .banner {
+    animation: rise 2s;
     background-image: url(../img/banner.jpg);
-    background-size: 1200px;
     background-position: top;
     background-repeat: no-repeat;
     height: 400px;
     text-align: center;
     color: white;
+    background-size: 1400px;
 
     h1 {
         padding: 15px 0 0 0;
@@ -14,6 +40,7 @@
 
 @media only screen and (min-width: 1200px) {
     .banner {
+        animation: grow 2s;
         background-size: 100%;
     } 
 }
