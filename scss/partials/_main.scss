@@ -1,0 +1,45 @@
+main {
+    padding: 15px 0;
+}
+
+%title {
+    text-transform: uppercase;
+    margin: 0;
+    padding: 15px;
+}
+
+h1 {
+    @extend %title;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+h2 {
+    @extend %title;
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+h3 {
+    @extend %title;
+    font-size: 20px;
+    padding: 0 15px;
+}
+
+p {
+    padding: 15px;
+    margin: 0;
+}
+
+.button {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    background-color: $background;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 50px;
+    border-width: 0;
+    cursor: pointer;
+}

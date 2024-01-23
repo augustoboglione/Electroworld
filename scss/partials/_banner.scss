@@ -1,0 +1,19 @@
+.banner {
+    background-image: url(../img/banner.jpg);
+    background-size: 1200px;
+    background-position: top;
+    background-repeat: no-repeat;
+    height: 400px;
+    text-align: center;
+    color: white;
+
+    h1 {
+        padding: 15px 0 0 0;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .banner {
+        background-size: 100%;
+    } 
+}

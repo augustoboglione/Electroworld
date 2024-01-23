@@ -1,0 +1,39 @@
+/*main productos*/
+
+.productos {
+    div {
+        width: 100%;
+        padding: 15px 0;
+    
+        &:first-child {
+            padding-top: 0;
+        }
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: $tablet) {
+    .productos img {
+        width: 50%;
+    }
+}
+
+/*main mapa*/
+
+.mapa {
+    width: 100%;
+}
+
+/*form*/
+
+form div {
+    padding: 15px;
+}
+
+textarea {
+    margin: 15px;
+}
+

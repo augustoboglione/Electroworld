@@ -1,0 +1,38 @@
+.cuadros {
+    width: 100%;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+            width: 50%;
+        }
+    
+        h3 {
+            font-weight: bold;
+        }
+    }
+}
+
+@media only screen and (min-width: $tablet) {
+    .cuadros {
+        flex-direction: row;
+        justify-content: space-around;
+
+        div {
+            width: 33%;
+
+            img {
+                width: 75%;
+            }
+        }
+    }
+}
