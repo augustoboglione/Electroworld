@@ -1,4 +1,6 @@
-.nav-link, .button, .fa-brands {
+$hover-time: 0.5s;
+
+.nav-link, .fa-brands {
     transition: color $hover-time;
     &:hover {
         color: black;
@@ -10,5 +12,17 @@
     &:hover {
         background-color: white;
         color: black;
+    }
+}
+
+.button {
+    transition: all $hover-time;
+
+    &:hover {
+        color: black;
+    }
+
+    &:active {
+        background-image: $gradient2;
     }
 }

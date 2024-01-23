@@ -1,9 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css");
+* {
+  box-sizing: content-box;
+  font-family: "Jost", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
 /*header*/
 header {
-  background-color: #00A0A0;
-  background-image: linear-gradient(to bottom right, #00A0A0, red);
+  background-image: linear-gradient(to bottom right, #00A0A0, #005050);
   padding: 15px;
   display: flex;
   justify-content: space-between;
@@ -63,7 +71,7 @@ header img {
 /*footer*/
 footer {
   color: white;
-  background-color: #00A0A0;
+  background-image: linear-gradient(to bottom right, #00A0A0, #005050);
   padding: 15px;
   display: sticky;
   bottom: 0;
@@ -118,6 +126,7 @@ h3, h2, h1 {
 h1 {
   font-size: 40px;
   font-weight: bold;
+  text-align: center;
 }
 
 h2 {
@@ -139,7 +148,7 @@ p {
   text-transform: uppercase;
   text-decoration: none;
   color: white;
-  background-color: #00A0A0;
+  background-image: linear-gradient(to bottom right, #00A0A0, #005050);
   padding: 10px;
   margin: 15px;
   border-radius: 50px;
@@ -292,10 +301,10 @@ textarea {
   margin: 15px;
 }
 
-.nav-link, .button, .fa-brands {
+.nav-link, .fa-brands {
   transition: color 0.5s;
 }
-.nav-link:hover, .button:hover, .fa-brands:hover {
+.nav-link:hover, .fa-brands:hover {
   color: black;
 }
 
@@ -307,13 +316,14 @@ textarea {
   color: black;
 }
 
-* {
-  box-sizing: content-box;
-  font-family: "Jost", sans-serif;
+.button {
+  transition: all 0.5s;
 }
-
-body {
-  margin: 0;
+.button:hover {
+  color: black;
+}
+.button:active {
+  background-image: linear-gradient(to top left, #00A0A0, #005050);
 }
 
 /*# sourceMappingURL=style.css.map */
