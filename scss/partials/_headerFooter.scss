@@ -42,27 +42,6 @@ header {
     color: black;
 }
 
-@media only screen and (min-width: $tablet) {
-    header {
-        position: sticky;
-        top: 0;
-    }
-
-    .nav-link {
-        font-size: 14px;
-    }
-}
-
-@media only screen and (min-width: $pc) {
-    header img {
-        width: 120px;
-    }
-
-    .nav-link {
-        font-size: 20px;
-    }
-}
-
 /*footer*/
 
 footer {

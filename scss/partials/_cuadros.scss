@@ -21,18 +21,3 @@
         }
     }
 }
-
-@media only screen and (min-width: $tablet) {
-    .cuadros {
-        flex-direction: row;
-        justify-content: space-around;
-
-        div {
-            width: 33%;
-
-            img {
-                width: 75%;
-            }
-        }
-    }
-}
