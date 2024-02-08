@@ -18,11 +18,11 @@ $buttonClick:linear-gradient(to top left, $background2, $background3);
 $tablet: 768px;
 $pc: 992px;
 
-@mixin size($width, $padding, $margin) {
-    width: $width;
-    padding: $padding;
-    margin: $margin;
-}
+$padding1: 15px;
+$padding2: 30px;
+$padding3: 40px;
+
+$imgHeight: 400px;
 
 @keyframes rise {
     from {
@@ -39,7 +39,7 @@ $pc: 992px;
 @keyframes grow {
     from {
         padding-top: 50px;
-        background-size: 1400px;
+        background-size: 120%;
         opacity: 0;
     }
     to {
@@ -58,7 +58,8 @@ body {
     margin: 0;
 }
 
-@import 'partials/headerFooter';
+@import 'partials/header';
+@import 'partials/footer';
 @import 'partials/main';
 @import 'partials/banner';
 @import 'partials/cuadros';

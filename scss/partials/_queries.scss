@@ -1,5 +1,44 @@
+@mixin spacing($padding) {
+    main, .cuadros, .destacados {
+        padding: $padding 0;
+    }
+
+    h1, :not(.banner) h2, p, .list, form div, .redes {
+        padding: 15px $padding;
+    }
+
+    h3, .banner h2 {
+        padding: 0 $padding;
+    }
+
+    .button, textarea {
+        margin: 15px $padding;
+    }
+
+    .banner h1 {
+        padding: $padding 0 0 0;
+    }
+
+    .destacados {
+        gap: $padding 15px;
+    }
+
+    .productos div {
+        padding: $padding 0 0 0;
+    }
+
+    .productos div:first-child {
+        padding: 0;
+    }
+
+    .contactos > div:last-child {
+        padding: 0;
+    }
+}
 
 @media only screen and (min-width: $tablet) {
+    @include spacing($padding2);
+
     header {
         position: sticky;
         top: 0;
@@ -22,12 +61,23 @@
         }
     }
 
-    .productos img, textarea {
-        width: 50%;
+    .contactos {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+
+        > :first-child {
+            text-align: right;
+        }
+
+        > :last-child {
+            width: 50%;
+        }
     }
 }
 
 @media only screen and (min-width: $pc) {
+    @include spacing($padding3);
+
     header img {
         width: 120px;
     }

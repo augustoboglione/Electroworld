@@ -1,0 +1,47 @@
+footer {
+    color: white;
+    background-image: $gradientFooter;
+    padding: $padding1;
+    display: sticky;
+    bottom: 0;
+
+    p {
+        text-align: center;
+        margin-bottom: 0;
+    }
+}
+
+.fa-brands {
+    color: white;
+    width: 20px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 50%; 
+}
+
+footer .fa-whatsapp {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 40px;
+    font-size: 40px;
+    padding: 10px;
+}
+
+.fa-whatsapp {
+    background-color: $whatsapp;
+}
+
+.fa-facebook-f {
+    background-color: $facebook;
+}
+
+.fa-x-twitter {
+    background-color: black;
+}
+
+.fa-instagram {
+    background-color: $instagram;
+}

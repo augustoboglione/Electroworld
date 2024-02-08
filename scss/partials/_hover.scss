@@ -1,7 +1,8 @@
 $hover-time: 0.5s;
 
-.nav-link, .fa-brands {
+.nav-link {
     transition: color $hover-time;
+    
     &:hover {
         color: black;
     }
@@ -9,6 +10,7 @@ $hover-time: 0.5s;
 
 .fa-brands {
     transition: all $hover-time;
+
     &:hover {
         background-color: white;
         color: black;

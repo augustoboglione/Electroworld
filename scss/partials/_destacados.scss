@@ -1,19 +1,18 @@
 .destacados {
     background-color: black;
     color: white;
+    padding: $padding1 0;
     display: grid;
-    grid-template-rows: auto repeat(3, 400px);
+    grid-template-rows: auto repeat(3, $imgHeight);
     grid-template-columns: 2fr 1fr 2fr;
     grid-template-areas:
     'tit tit tit'
     'img1 img1 txt1'
     'txt2 img2 img2'
     'img3 img3 txt3';
-    gap: 20px 15px;
+    gap: $padding1 15px;
 
     h2 {
-        padding-top: 30px;
-        padding-bottom: 10px;
         text-align: center;
         grid-area: tit;
     }
@@ -22,9 +21,8 @@
 @for $i from 1 through 3 {
     .img#{$i} {
         height: 100%;
-        background-size: cover;
-        background-position: center;    
-        background-image: url(../img/prod#{$i}.jpg);
+        width: 100%;
+        object-fit: cover;
         grid-area: img#{$i};
     }
 

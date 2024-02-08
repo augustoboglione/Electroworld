@@ -1,15 +1,15 @@
 .cuadros {
     width: 100%;
-    padding: 15px 0;
+    padding: $padding1 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     div {
         width: 100%;
+        padding: 15px 0;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         align-items: center;
 
         img {

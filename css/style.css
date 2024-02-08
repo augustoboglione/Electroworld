@@ -13,7 +13,7 @@
 @keyframes grow {
   from {
     padding-top: 50px;
-    background-size: 1400px;
+    background-size: 120%;
     opacity: 0;
   }
   to {
@@ -31,7 +31,6 @@ body {
   margin: 0;
 }
 
-/*header*/
 header {
   background-image: linear-gradient(306deg, #00D4FF 0%, #00A0A0 31%, #020024 100%);
   padding: 15px;
@@ -73,7 +72,6 @@ header img {
   color: black;
 }
 
-/*footer*/
 footer {
   color: white;
   background-image: linear-gradient(126deg, #00D4FF 0%, #00A0A0 31%, #020024 100%);
@@ -96,13 +94,16 @@ footer p {
   border-radius: 50%;
 }
 
-.fa-whatsapp {
+footer .fa-whatsapp {
   position: fixed;
   right: 25px;
   bottom: 25px;
   width: 40px;
   font-size: 40px;
   padding: 10px;
+}
+
+.fa-whatsapp {
   background-color: #25D366;
 }
 
@@ -125,7 +126,7 @@ main {
 h3, .banner h2, :not(.banner) > h2, h1 {
   text-transform: uppercase;
   margin: 0;
-  padding: 15px;
+  padding: 15px 15px;
 }
 
 h1 {
@@ -144,18 +145,24 @@ h3, .banner h2 {
   padding: 0 15px;
 }
 
-p {
-  padding: 15px;
+p, .list {
+  padding: 15px 15px;
+  margin: 0;
+}
+
+ol {
   margin: 0;
 }
 
 .button {
   text-transform: uppercase;
   text-decoration: none;
+  display: block;
   color: white;
   background-image: linear-gradient(to bottom right, #00A0A0, #005050);
+  width: auto;
   padding: 10px;
-  margin: 15px;
+  margin: 15px 15px;
   border-radius: 50px;
   border-width: 0;
   cursor: pointer;
@@ -174,11 +181,6 @@ p {
 .banner h1 {
   padding: 15px 0 0 0;
 }
-.banner h2 {
-  font-size: 20px;
-  padding: 0 15px;
-  font-weight: none;
-}
 
 .cuadros {
   width: 100%;
@@ -189,9 +191,9 @@ p {
 }
 .cuadros div {
   width: 100%;
+  padding: 15px 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
 }
 .cuadros div img {
@@ -204,24 +206,22 @@ p {
 .destacados {
   background-color: black;
   color: white;
+  padding: 15px 0;
   display: grid;
   grid-template-rows: auto repeat(3, 400px);
   grid-template-columns: 2fr 1fr 2fr;
   grid-template-areas: "tit tit tit" "img1 img1 txt1" "txt2 img2 img2" "img3 img3 txt3";
-  gap: 20px 15px;
+  gap: 15px 15px;
 }
 .destacados h2 {
-  padding-top: 30px;
-  padding-bottom: 10px;
   text-align: center;
   grid-area: tit;
 }
 
 .img1 {
   height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-image: url(../img/prod1.jpg);
+  width: 100%;
+  object-fit: cover;
   grid-area: img1;
 }
 
@@ -234,9 +234,8 @@ p {
 
 .img2 {
   height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-image: url(../img/prod2.jpg);
+  width: 100%;
+  object-fit: cover;
   grid-area: img2;
 }
 
@@ -251,9 +250,8 @@ p {
 
 .img3 {
   height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-image: url(../img/prod3.jpg);
+  width: 100%;
+  object-fit: cover;
   grid-area: img3;
 }
 
@@ -267,35 +265,64 @@ p {
 /*main productos*/
 .productos div {
   width: 100%;
-  padding: 15px 0;
+  padding: 15px 0 0 0;
+  display: flex;
+  flex-direction: column;
 }
 .productos div:first-child {
-  padding-top: 0;
+  padding: 0;
 }
-.productos img {
+.productos div a {
+  align-self: start;
+}
+.productos div img {
+  height: 400px;
   width: 100%;
+  object-fit: cover;
 }
 
 /*main mapa*/
 .mapa {
   width: 100%;
+  padding: 15px 0;
+}
+
+/*main contactos*/
+.contactos {
+  display: flex;
+  flex-direction: column;
+}
+.contactos > div:last-child {
+  padding: 15px 0 0 0;
+}
+
+.redes {
+  padding: 15px 15px;
+  display: flex;
+  justify-content: space-between;
+  width: 270px;
+}
+.redes .fa-brands {
+  width: 40px;
+  font-size: 40px;
+  padding: 10px;
 }
 
 /*form*/
 form div {
-  padding: 15px;
+  padding: 15px 15px;
 }
 
 textarea {
-  margin: 15px;
+  margin: 15px 15px;
   width: 75%;
   height: auto;
 }
 
-.nav-link, .fa-brands {
+.nav-link {
   transition: color 0.5s;
 }
-.nav-link:hover, .fa-brands:hover {
+.nav-link:hover {
   color: black;
 }
 
@@ -318,6 +345,33 @@ textarea {
 }
 
 @media only screen and (min-width: 768px) {
+  main, .cuadros, .destacados {
+    padding: 30px 0;
+  }
+  h1, :not(.banner) h2, p, .list, form div, .redes {
+    padding: 15px 30px;
+  }
+  h3, .banner h2 {
+    padding: 0 30px;
+  }
+  .button, textarea {
+    margin: 15px 30px;
+  }
+  .banner h1 {
+    padding: 30px 0 0 0;
+  }
+  .destacados {
+    gap: 30px 15px;
+  }
+  .productos div {
+    padding: 30px 0 0 0;
+  }
+  .productos div:first-child {
+    padding: 0;
+  }
+  .contactos > div:last-child {
+    padding: 0;
+  }
   header {
     position: sticky;
     top: 0;
@@ -335,11 +389,45 @@ textarea {
   .cuadros div img {
     width: 75%;
   }
-  .productos img, textarea {
+  .contactos {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  .contactos > :first-child {
+    text-align: right;
+  }
+  .contactos > :last-child {
     width: 50%;
   }
 }
 @media only screen and (min-width: 992px) {
+  main, .cuadros, .destacados {
+    padding: 40px 0;
+  }
+  h1, :not(.banner) h2, p, .list, form div, .redes {
+    padding: 15px 40px;
+  }
+  h3, .banner h2 {
+    padding: 0 40px;
+  }
+  .button, textarea {
+    margin: 15px 40px;
+  }
+  .banner h1 {
+    padding: 40px 0 0 0;
+  }
+  .destacados {
+    gap: 40px 15px;
+  }
+  .productos div {
+    padding: 40px 0 0 0;
+  }
+  .productos div:first-child {
+    padding: 0;
+  }
+  .contactos > div:last-child {
+    padding: 0;
+  }
   header img {
     width: 120px;
   }

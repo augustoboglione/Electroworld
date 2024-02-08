@@ -3,18 +3,12 @@
     background-image: url(../img/banner.jpg);
     background-position: top;
     background-repeat: no-repeat;
-    height: 400px;
+    height: $imgHeight;
     text-align: center;
     color: white;
     background-size: 1400px;
 
     h1 {
-        padding: 15px 0 0 0;
-    }
-
-    h2 {
-        font-size: 20px;
-        padding: 0 15px;
-        font-weight: none;
+        padding: $padding1 0 0 0;
     }
 }

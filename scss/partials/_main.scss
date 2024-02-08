@@ -1,11 +1,11 @@
 main {
-    padding: 15px 0;
+    padding: $padding1 0;
 }
 
 %title {
     text-transform: uppercase;
     margin: 0;
-    padding: 15px;
+    padding: 15px $padding1;
 }
 
 h1 {
@@ -24,21 +24,27 @@ h1 {
 h3, .banner h2 {
     @extend %title;
     font-size: 20px;
-    padding: 0 15px;
+    padding: 0 $padding1;
 }
 
-p {
-    padding: 15px;
+p, .list {
+    padding: 15px $padding1;
+    margin: 0;
+}
+
+ol {
     margin: 0;
 }
 
 .button {
     text-transform: uppercase;
     text-decoration: none;
+    display: block;
     color: white;
     background-image: $button;
+    width: auto;
     padding: 10px;
-    margin: 15px;
+    margin: 15px $padding1;
     border-radius: 50px;
     border-width: 0;
     cursor: pointer;
