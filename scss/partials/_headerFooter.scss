@@ -1,7 +1,7 @@
 /*header*/
 
 header {
-    background-image: $gradient;
+    background-image: $gradientHeader;
     padding: 15px;
     display: flex;
     justify-content: space-between;
@@ -46,7 +46,7 @@ header {
 
 footer {
     color: white;
-    background-image: $gradient2;
+    background-image: $gradientFooter;
     padding: 15px;
     display: sticky;
     bottom: 0;

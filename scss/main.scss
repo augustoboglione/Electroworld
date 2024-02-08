@@ -1,16 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css");
 
-$background: #00A0A0;
-$background2: #005050;
+$background1: #00D4FF;
+$background2: #00A0A0;
+$background3: #005050;
+$background4: #020024;
+
 $facebook: #1877F2;
 $whatsapp: #25D366;
 $instagram: #D62976;
 
-$gradient: linear-gradient(306deg, rgba(0,212,255,1) 0%, rgba(0,160,160,1) 31%, rgba(2,0,36,1) 100%);
-$gradient2: linear-gradient(126deg, rgba(0,212,255,1) 0%, rgba(0,160,160,1) 31%, rgba(2,0,36,1) 100%);
-$button: linear-gradient(to bottom right, $background, $background2);
-$buttonClick:linear-gradient(to top left, $background, $background2);
+$gradientHeader: linear-gradient(306deg, $background1 0%, $background2 31%, $background4 100%);
+$gradientFooter: linear-gradient(126deg, $background1 0%, $background2 31%, $background4 100%);
+$button: linear-gradient(to bottom right, $background2, $background3);
+$buttonClick:linear-gradient(to top left, $background2, $background3);
 
 $tablet: 768px;
 $pc: 992px;
@@ -19,6 +22,31 @@ $pc: 992px;
     width: $width;
     padding: $padding;
     margin: $margin;
+}
+
+@keyframes rise {
+    from {
+        padding-top: 50px;
+        opacity: 0;
+    }  
+
+    to {
+        padding-top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes grow {
+    from {
+        padding-top: 50px;
+        background-size: 1400px;
+        opacity: 0;
+    }
+    to {
+        padding-top: 0;
+        background-size: 100%;
+        opacity: 1;
+    }
 }
 
 * {

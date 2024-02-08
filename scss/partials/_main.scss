@@ -15,14 +15,13 @@ h1 {
     text-align: center;
 }
 
-h2 {
+:not(.banner) > h2 {
     @extend %title;
     font-size: 30px;
     font-weight: bold;
-
 }
 
-h3 {
+h3, .banner h2 {
     @extend %title;
     font-size: 20px;
     padding: 0 15px;
