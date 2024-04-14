@@ -10,10 +10,10 @@ $facebook: #1877F2;
 $whatsapp: #25D366;
 $instagram: #D62976;
 
-$gradientHeader: linear-gradient(306deg, $background1 0%, $background2 31%, $background4 100%);
-$gradientFooter: linear-gradient(126deg, $background1 0%, $background2 31%, $background4 100%);
+$gradient-header: linear-gradient(306deg, $background1 0%, $background2 31%, $background4 100%);
+$gradient-footer: linear-gradient(126deg, $background1 0%, $background2 31%, $background4 100%);
 $button: linear-gradient(to bottom right, $background2, $background3);
-$buttonClick:linear-gradient(to top left, $background2, $background3);
+$button-click:linear-gradient(to top left, $background2, $background3);
 
 $tablet: 768px;
 $pc: 992px;
@@ -22,7 +22,7 @@ $padding1: 15px;
 $padding2: 30px;
 $padding3: 40px;
 
-$imgHeight: 400px;
+$img-height: 400px;
 
 @keyframes rise {
     from {
@@ -61,6 +61,7 @@ body {
 @import 'partials/header';
 @import 'partials/footer';
 @import 'partials/main';
+@import 'partials/cart';
 @import 'partials/banner';
 @import 'partials/cuadros';
 @import 'partials/destacados';

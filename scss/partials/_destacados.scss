@@ -3,7 +3,7 @@
     color: white;
     padding: $padding1 0;
     display: grid;
-    grid-template-rows: auto repeat(3, $imgHeight);
+    grid-template-rows: auto repeat(3, $img-height);
     grid-template-columns: 2fr 1fr 2fr;
     grid-template-areas:
     'tit tit tit'

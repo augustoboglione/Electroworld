@@ -1,5 +1,5 @@
 header {
-    background-image: $gradientHeader;
+    background-image: $gradient-header;
     padding: $padding1;
     display: flex;
     justify-content: space-between;
@@ -38,4 +38,12 @@ header {
 
 .act {
     color: black;
+}
+
+#cart-widget {
+    position: fixed;
+    right: 10px;
+    width: 200px;
+    height: 400px;
+    background-color: black;
 }
