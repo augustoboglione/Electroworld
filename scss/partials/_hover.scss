@@ -1,25 +1,33 @@
 $hover-time: 0.5s;
 
-.nav-link {
-    transition: color $hover-time;
-    
-    &:hover {
+.nav-link, .cart-num, .cart-list, .cart-img, .fa-brands, .button {
+    transition: all $hover-time;
+}
+
+.nav-link:hover {
+    color: black;
+}
+
+#cart:hover {
+    .cart-img {
+        filter: invert(100%);
+    }
+
+    .cart-num {
         color: black;
+    }
+
+    .cart-list {
+        display: block;
     }
 }
 
-.fa-brands {
-    transition: all $hover-time;
-
-    &:hover {
-        background-color: white;
-        color: black;
-    }
+.fa-brands:hover {
+    background-color: white;
+    color: black;
 }
 
 .button {
-    transition: all $hover-time;
-
     &:hover {
         color: black;
     }

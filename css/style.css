@@ -32,12 +32,13 @@ body {
 }
 
 header {
+  color: white;
   background-image: linear-gradient(306deg, #00D4FF 0%, #00A0A0 31%, #020024 100%);
   padding: 15px;
   display: flex;
   justify-content: space-between;
 }
-header img {
+header a img {
   width: 80px;
 }
 
@@ -70,14 +71,6 @@ header img {
 
 .act {
   color: black;
-}
-
-#cart-widget {
-  position: fixed;
-  right: 10px;
-  width: 200px;
-  height: 400px;
-  background-color: black;
 }
 
 footer {
@@ -176,12 +169,55 @@ ol {
   cursor: pointer;
 }
 
-#cart-widget {
-  position: fixed;
-  right: 10px;
-  width: 200px;
-  height: 400px;
-  background-color: black;
+#cart {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+#cart p {
+  padding: 15px;
+}
+#cart .cart-num {
+  position: absolute;
+  z-index: 1;
+  margin-bottom: 15px;
+}
+
+.cart-img {
+  width: 70px;
+  margin: auto;
+}
+
+.cart-list {
+  position: absolute;
+  display: none;
+  top: 100px;
+  right: 0;
+  width: 300px;
+  border-style: solid;
+  background-color: white;
+  color: black;
+}
+
+.item {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.name {
+  width: 50%;
+}
+
+.down, .up, .delete, .qty {
+  width: 12%;
+}
+
+.delete {
+  width: 20px;
+  margin: auto;
 }
 
 .banner {
@@ -335,24 +371,29 @@ textarea {
   height: auto;
 }
 
-.nav-link {
-  transition: color 0.5s;
+.nav-link, .cart-num, .cart-list, .cart-img, .fa-brands, .button {
+  transition: all 0.5s;
 }
+
 .nav-link:hover {
   color: black;
 }
 
-.fa-brands {
-  transition: all 0.5s;
+#cart:hover .cart-img {
+  filter: invert(100%);
 }
+#cart:hover .cart-num {
+  color: black;
+}
+#cart:hover .cart-list {
+  display: block;
+}
+
 .fa-brands:hover {
   background-color: white;
   color: black;
 }
 
-.button {
-  transition: all 0.5s;
-}
 .button:hover {
   color: black;
 }
@@ -444,7 +485,7 @@ textarea {
   .contactos > div:last-child {
     padding: 0;
   }
-  header img {
+  header a img {
     width: 120px;
   }
   .nav-link {

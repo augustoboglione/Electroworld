@@ -1,7 +1,52 @@
-#cart-widget {
-    position: fixed;
-    right: 10px;
-    width: 200px;
-    height: 400px;
-    background-color: black;
+#cart {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    p {
+        padding: 15px;
+    }
+
+    .cart-num {
+        position: absolute;
+        z-index: 1;
+        margin-bottom: 15px;
+    }
+}
+
+.cart-img {
+    width: 70px;
+    margin: auto;
+}
+
+.cart-list {
+    position: absolute;
+    display: none;
+    top: 100px;
+    right: 0;
+    width: 300px;
+    border-style: solid;
+    background-color: white;
+    color: black;
+}
+
+.item {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.name {
+    width: 50%;
+}
+
+.down, .up, .delete, .qty {
+    width: 12%;
+}
+
+.delete {
+    width: 20px;
+    margin: auto;
 }

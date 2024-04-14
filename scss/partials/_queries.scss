@@ -78,7 +78,7 @@
 @media only screen and (min-width: $pc) {
     @include spacing($padding3);
 
-    header img {
+    header a img {
         width: 120px;
     }
 

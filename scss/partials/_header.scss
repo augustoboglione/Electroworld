@@ -1,10 +1,11 @@
 header {
+    color: white;
     background-image: $gradient-header;
     padding: $padding1;
     display: flex;
     justify-content: space-between;
 
-    img {
+    a img {
         width: 80px;
     }
 }
@@ -38,12 +39,4 @@ header {
 
 .act {
     color: black;
-}
-
-#cart-widget {
-    position: fixed;
-    right: 10px;
-    width: 200px;
-    height: 400px;
-    background-color: black;
 }
