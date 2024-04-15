@@ -44,8 +44,14 @@ class Product {
         if (Product.sum >= 10) cartNum.classList.add("overflow")
         else if (cartNum.classList.contains("overflow")) cartNum.classList.remove("overflow")
 
-        if (Product.sum) total.innerHTML = `<p class="name">Total</p><p class="price">$${products.reduce((x, y) => x + y.qty * y.price, 0)}</p>`
-        else total.innerHTML = "<p class='empty'>El carrito está vacío</p>"
+        if (Product.sum) {
+            total.innerHTML = `<p class="name">Total</p><p class="price">$${products.reduce((x, y) => x + y.qty * y.price, 0)}</p>`
+            if (total.classList.contains("empty")) total.classList.remove("empty")
+        }
+        else {
+            total.innerHTML = "<p>El carrito está vacío</p>"
+            total.classList.add("empty")
+        }
 
         localStorage.setItem(this.id, this.qty)
     }

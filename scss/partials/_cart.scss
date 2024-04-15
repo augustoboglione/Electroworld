@@ -1,6 +1,6 @@
 #cart {
     position: relative;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -98,7 +98,11 @@
 }
 
 .empty {
-    font-size: 20px;
-    width: 100%;
-    text-align: center;
+    border: none;
+
+    p {
+        font-size: 20px;
+        width: 100%;
+        text-align: center;
+    }
 }

@@ -190,7 +190,7 @@ ol {
 
 #cart {
   position: relative;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -286,6 +286,9 @@ ol {
 }
 
 .empty {
+  border: none;
+}
+.empty p {
   font-size: 20px;
   width: 100%;
   text-align: center;
@@ -529,6 +532,9 @@ textarea {
   .nav-link {
     font-size: 14px;
   }
+  #cart {
+    display: flex;
+  }
   .cuadros {
     flex-direction: row;
     justify-content: space-around;
@@ -581,6 +587,11 @@ textarea {
   header a img {
     width: 120px;
   }
+  .nav-link {
+    font-size: 19px;
+  }
+}
+@media only screen and (min-width: 1000px) {
   .nav-link {
     font-size: 20px;
   }
