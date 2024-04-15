@@ -1,45 +1,51 @@
 const ids = ["processor", "motherboard", "ssd", "ram", "graphics"]
-const text = {"processor": "Procesador", "motherboard": "Motherboard", "ssd": "Tarjeta SSD", "ram": "Tarjeta RAM", "graphics": "Tarjeta gráfica"}
+const names = {"processor": "Procesador", "motherboard": "Motherboard", "ssd": "Tarjeta SSD", "ram": "Tarjeta RAM", "graphics": "Tarjeta gráfica"}
 const prices = {"processor": 3, "motherboard": 5, "ssd": 10, "ram": 8, "graphics": 11}
+const local = {}
 
-const cart = document.querySelector("#cart")
-const cartList = document.querySelector(".cart-list")
-const total = document.querySelector(".total")
+const cart = document.getElementById("cart")
+const cartNum = cart.querySelector(".cart-num")
+const cartList = cart.querySelector(".cart-list")
+const total = cartList.querySelector(".total")
 
-const getLocalStorage = () => {
-    if (localStorage.getItem(ids[0]) != null) ids.forEach((el, i) => products[i].qty = parseInt(localStorage.getItem(el)))
-}
+const getLocalStorage = () => ids.forEach(el => local[el] = localStorage.getItem(el) ? parseInt(localStorage.getItem(el)) : 0)
 
 class Product {
-    constructor(id) {
+    static sum = 0
+
+    constructor(id, name, price, qty) {
         this.id = id
-        this.price = prices[id]
-        this.qty = 0
+        this.name = name
+        this.price = price
+        this.qty = qty
+        Product.sum += qty
 
         this.button = document.getElementById(id)
         if (this.button != null) this.button.onclick = this.addToCart.bind(this)
 
         this.item = document.createElement("div")
         this.item.className = "item"
-        this.item.innerHTML = `<p class="name">${text[this.id]}</p><p class="down">-</p>
-        <p class="qty"/><p class="up">+</p><img class="delete" src="../img/bin.png"><p class="price"/>`
-    
-        this.addToCart = this.addToCart.bind(this)
-        this.up = this.up.bind(this)
-        this.down = this.down.bind(this)
-        this.delete = this.delete.bind(this)
+        this.item.innerHTML = 
+        `<p class="name">${this.name}</p>
+        <div>
+            <img class="down" src="../img/minus.svg" alt="Sustraer">
+            <p class="qty"></p>
+            <img class="up" src="../img/plus.svg" alt="Agregar">
+            <img class="delete" src="../img/delete.svg" alt="Eliminar">
+        </div>
+        <p class="price"></p>`
     }
 
-    save() {
-        const num = products.reduce((x, y) => x + y.qty, 0)
-
+    write() {
         this.item.querySelector(".qty").innerText = this.qty
         this.item.querySelector(".price").innerText = `$${this.qty * this.price}`
 
-        cart.querySelector(".cart-num").innerText = num
+        cartNum.innerText = Product.sum
+        if (Product.sum >= 10) cartNum.classList.add("overflow")
+        else if (cartNum.classList.contains("overflow")) cartNum.classList.remove("overflow")
 
-        if (num) total.innerText = products.reduce((x, y) => x + y.qty * y.price, 0)
-        else total.innerText = "El carrito está vacío."
+        if (Product.sum) total.innerHTML = `<p class="name">Total</p><p class="price">$${products.reduce((x, y) => x + y.qty * y.price, 0)}</p>`
+        else total.innerHTML = "<p class='empty'>El carrito está vacío</p>"
 
         localStorage.setItem(this.id, this.qty)
     }
@@ -48,11 +54,10 @@ class Product {
         if (!cartList.contains(this.item) && this.qty) {
             cartList.insertBefore(this.item, total)
 
-            this.item.querySelector(".down").onclick = this.down
-            this.item.querySelector(".up").onclick = this.up
-            this.item.querySelector(".delete").onclick = this.delete
+            this.item.querySelector(".down").onclick = this.down.bind(this)
+            this.item.querySelector(".up").onclick = this.up.bind(this)
+            this.item.querySelector(".delete").onclick = this.delete.bind(this)
         }
-        this.save()
     }
 
     addToCart() {
@@ -62,26 +67,32 @@ class Product {
 
     up() {
         this.qty++
-        this.save()
+        Product.sum++
+        this.write()
     }
 
     down() {
         if (this.qty == 1) this.delete()
         else {
             this.qty--
-            this.save()
+            Product.sum--
+            this.write()
         }
     }
 
     delete() {
+        Product.sum -= this.qty
         this.qty = 0
-        this.save()
+        this.write()
         cartList.removeChild(this.item)
     }
 }
 
-const products = ids.map(el => new Product(el))
-
 getLocalStorage()
 
-for (let i of products) i.addItem()
+const products = ids.map(el => new Product(el, names[el], prices[el], local[el]))
+
+for (let i of products) {
+    i.addItem()
+    i.write()
+}

@@ -22,6 +22,25 @@
     opacity: 1;
   }
 }
+@keyframes cart {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+@keyframes out {
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 0%;
+  }
+  100% {
+    display: none;
+  }
+}
 * {
   box-sizing: content-box;
   font-family: "Jost", sans-serif;
@@ -124,7 +143,7 @@ main {
   padding: 15px 0;
 }
 
-h3, .banner h2, :not(.banner) > h2, h1 {
+h3, .banner h2, :not(.banner, #cart) > h2, h1 {
   text-transform: uppercase;
   margin: 0;
   padding: 15px 15px;
@@ -136,7 +155,7 @@ h1 {
   text-align: center;
 }
 
-:not(.banner) > h2 {
+:not(.banner, #cart) > h2 {
   font-size: 30px;
   font-weight: bold;
 }
@@ -176,12 +195,18 @@ ol {
   align-items: center;
   cursor: pointer;
 }
-#cart p {
-  padding: 15px;
-}
-#cart .cart-num {
+
+.cart-num {
+  font-size: 30px;
+  font-weight: bold;
   position: absolute;
   z-index: 1;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.overflow {
+  font-size: 20px;
   margin-bottom: 15px;
 }
 
@@ -193,31 +218,77 @@ ol {
 .cart-list {
   position: absolute;
   display: none;
+  opacity: 0%;
+  background-image: linear-gradient(306deg, #00D4FF 0%, #00A0A0 31%, #020024 100%);
+  padding: 0 15px;
+  border-radius: 30px;
   top: 100px;
   right: 0;
-  width: 300px;
-  border-style: solid;
-  background-color: white;
-  color: black;
+  width: 500px;
+  cursor: default;
 }
 
-.item {
-  height: 100%;
-  width: 100%;
+.item, .total {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 15px 0;
+  height: 50px;
+  width: 100%;
 }
 
 .name {
-  width: 50%;
+  font-size: 20px;
+  width: 30%;
+  padding: 0 0 0 15px;
 }
 
-.down, .up, .delete, .qty {
-  width: 12%;
+.item div {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.item div img {
+  filter: invert(100%);
+  cursor: pointer;
+}
+
+.down, .up {
+  height: 100%;
 }
 
 .delete {
-  width: 20px;
-  margin: auto;
+  height: 80%;
+  padding: 0 0 0 15px;
+}
+
+.qty {
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  width: 70px;
+  padding: 0;
+}
+
+.price {
+  font-size: 20px;
+  width: 15%;
+  text-align: end;
+  padding: 0 15px 0 0;
+}
+
+.total {
+  border-top: solid 1px;
+}
+.total .price {
+  font-size: 25px;
+}
+
+.empty {
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
 }
 
 .banner {
@@ -371,12 +442,19 @@ textarea {
   height: auto;
 }
 
-.nav-link, .cart-num, .cart-list, .cart-img, .fa-brands, .button {
-  transition: all 0.5s;
+.nav-link {
+  transition: color 0.5s;
 }
-
 .nav-link:hover {
   color: black;
+}
+
+.cart-img {
+  transition: filter 0.5s;
+}
+
+.cart-num {
+  transition: color 0.5s;
 }
 
 #cart:hover .cart-img {
@@ -387,13 +465,28 @@ textarea {
 }
 #cart:hover .cart-list {
   display: block;
+  animation: cart 0.5s;
+  animation-fill-mode: forwards;
 }
 
+.down, .up, .delete {
+  transition: filter 0.5s;
+}
+.down:hover, .up:hover, .delete:hover {
+  filter: invert(0%);
+}
+
+.fa-brands {
+  transition: all 0.5s;
+}
 .fa-brands:hover {
   background-color: white;
   color: black;
 }
 
+.button {
+  transition: all 0.5s;
+}
 .button:hover {
   color: black;
 }
@@ -405,7 +498,7 @@ textarea {
   main, .cuadros, .destacados {
     padding: 30px 0;
   }
-  h1, :not(.banner) h2, p, .list, form div, .redes {
+  h1, :not(.banner, #cart) > h2, p, .list, form div, .redes {
     padding: 15px 30px;
   }
   h3, .banner h2 {
@@ -461,7 +554,7 @@ textarea {
   main, .cuadros, .destacados {
     padding: 40px 0;
   }
-  h1, :not(.banner) h2, p, .list, form div, .redes {
+  h1, :not(.banner, #cart) > h2, p, .list, form div, .redes {
     padding: 15px 40px;
   }
   h3, .banner h2 {

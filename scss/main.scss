@@ -49,6 +49,27 @@ $img-height: 400px;
     }
 }
 
+@keyframes cart {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+@keyframes out {
+    0% {
+        opacity: 100%;
+    }
+    50% {
+        opacity: 0%
+    }
+    100% {
+        display: none;
+    }
+}
+
 * {
     box-sizing: content-box;
     font-family: 'Jost', sans-serif;

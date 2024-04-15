@@ -1,11 +1,19 @@
 $hover-time: 0.5s;
 
-.nav-link, .cart-num, .cart-list, .cart-img, .fa-brands, .button {
-    transition: all $hover-time;
+.nav-link {
+    transition: color $hover-time;
+
+    &:hover {
+        color: black;
+    }
 }
 
-.nav-link:hover {
-    color: black;
+.cart-img {
+    transition: filter $hover-time;
+}
+
+.cart-num {
+    transition: color $hover-time;
 }
 
 #cart:hover {
@@ -19,15 +27,31 @@ $hover-time: 0.5s;
 
     .cart-list {
         display: block;
+        animation: cart $hover-time;
+        animation-fill-mode: forwards;
     }
 }
 
-.fa-brands:hover {
-    background-color: white;
-    color: black;
+.down, .up, .delete {
+    transition: filter $hover-time;
+
+    &:hover {
+        filter: invert(0%);
+    }
+}
+
+.fa-brands {
+    transition: all $hover-time;
+
+    &:hover {
+        background-color: white;
+        color: black;
+    }
 }
 
 .button {
+    transition: all $hover-time;
+
     &:hover {
         color: black;
     }

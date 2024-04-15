@@ -15,7 +15,7 @@ h1 {
     text-align: center;
 }
 
-:not(.banner) > h2 {
+:not(.banner, #cart) > h2 {
     @extend %title;
     font-size: 30px;
     font-weight: bold;

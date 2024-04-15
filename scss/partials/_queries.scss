@@ -3,7 +3,7 @@
         padding: $padding 0;
     }
 
-    h1, :not(.banner) h2, p, .list, form div, .redes {
+    h1, :not(.banner, #cart) > h2, p, .list, form div, .redes {
         padding: 15px $padding;
     }
 

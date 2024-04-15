@@ -4,16 +4,20 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
 
-    p {
-        padding: 15px;
-    }
+.cart-num {
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    z-index: 1;
+    margin-bottom: 20px;
+    padding: 0;
+}
 
-    .cart-num {
-        position: absolute;
-        z-index: 1;
-        margin-bottom: 15px;
-    }
+.overflow {
+    font-size: 20px;
+    margin-bottom: 15px;
 }
 
 .cart-img {
@@ -24,29 +28,77 @@
 .cart-list {
     position: absolute;
     display: none;
+    opacity: 0%;
+    background-image: $gradient-header;
+    padding: 0 15px;
+    border-radius: 30px;
     top: 100px;
     right: 0;
-    width: 300px;
-    border-style: solid;
-    background-color: white;
-    color: black;
+    width: 500px;
+    cursor: default;
 }
 
-.item {
-    height: 100%;
-    width: 100%;
+.item, .total {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 15px 0;
+    height: 50px;
+    width: 100%;
 }
 
 .name {
-    width: 50%;
+    font-size: 20px;
+    width: 30%;
+    padding: 0 0 0 15px;
 }
 
-.down, .up, .delete, .qty {
-    width: 12%;
+.item div {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    img {
+        filter: invert(100%);
+        cursor: pointer;
+    }
+}
+
+.down, .up {
+    height: 100%;
 }
 
 .delete {
-    width: 20px;
-    margin: auto;
+    height: 80%;
+    padding: 0 0 0 15px;
+}
+
+.qty {
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    width: 70px;
+    padding: 0;
+}
+
+.price {
+    font-size: 20px;
+    width: 15%;
+    text-align: end;
+    padding: 0 15px 0 0;
+}
+
+.total {
+    border-top: solid 1px;
+
+    .price {
+        font-size: 25px;
+    }
+}
+
+.empty {
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
 }
