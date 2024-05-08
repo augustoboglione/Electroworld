@@ -1,17 +1,55 @@
-const ids = ["processor", "motherboard", "ssd", "ram", "graphics"]
-const names = {"processor": "Procesador", "motherboard": "Motherboard", "ssd": "Tarjeta SSD", "ram": "Tarjeta RAM", "graphics": "Tarjeta gráfica"}
-const prices = {"processor": 3, "motherboard": 5, "ssd": 10, "ram": 8, "graphics": 11}
-const local = {}
-
-const cart = document.getElementById("cart")
-const cartNum = cart.querySelector(".cart-num")
-const cartList = cart.querySelector(".cart-list")
+const cartNum = document.querySelector(".cart-num")
+const cartList = document.querySelector(".cart-list")
 const total = cartList.querySelector(".total")
 
-const getLocalStorage = () => ids.forEach(el => local[el] = localStorage.getItem(el) ? parseInt(localStorage.getItem(el)) : 0)
+let data, products
+
+const local = {}
+
+const fetchData = async () => {
+    data = await (await fetch("../api/data.json")).json()
+    data.forEach(product => local[product.id] = localStorage.getItem(product.id) ? parseInt(localStorage.getItem(product.id)) : 0)
+
+    const section = document.querySelector("section.productos")
+
+    if (section) data.forEach(product => {
+        const div = document.createElement("div")
+        div.className = `${product.id}-div`
+        div.innerHTML = 
+        `<h2>${product.name}</h2>
+        <img src="../img/${product.id}.jpg" alt="${product.name}">
+        <p>${product.description}</p>
+        <a class="button" id="${product.id}">Agregar al carrito</a>`
+
+        section.appendChild(div)
+    })
+
+    const highlighted = document.querySelector("section.destacados")
+
+    if (highlighted) data.forEach(product => {
+        if (product.highlighted) {
+            const img = document.createElement("img")
+            img.className = `img${product.highlighted}`
+            img.src = `img/${product.id}.jpg`
+            img.alt = product.name
+
+            const div = document.createElement("div")
+            div.className = `txt${product.highlighted}`
+            div.innerHTML =
+            `<h3>${product.name}</h3>
+            <p>${product.short}</p>
+            <a class="button" href="pages/productos.html#${product.id}-div">Ver más</a>`
+
+            highlighted.append(img, div)
+        }
+    })
+
+    products = data.map(product => new Product(product.id, product.name, product.price, local[product.id]))
+}
 
 class Product {
     static sum = 0
+    static total = 0
 
     constructor(id, name, price, qty) {
         this.id = id
@@ -19,6 +57,7 @@ class Product {
         this.price = price
         this.qty = qty
         Product.sum += qty
+        Product.total += qty * price
 
         this.button = document.getElementById(id)
         if (this.button != null) this.button.onclick = this.addToCart.bind(this)
@@ -34,6 +73,9 @@ class Product {
             <img class="delete" src="../img/delete.svg" alt="Eliminar">
         </div>
         <p class="price"></p>`
+
+        this.addItem()
+        this.write()
     }
 
     write() {
@@ -44,8 +86,8 @@ class Product {
         if (Product.sum >= 10) cartNum.classList.add("overflow")
         else if (cartNum.classList.contains("overflow")) cartNum.classList.remove("overflow")
 
-        if (Product.sum) {
-            total.innerHTML = `<p class="name">Total</p><p class="price">$${products.reduce((x, y) => x + y.qty * y.price, 0)}</p>`
+        if (Product.total) {
+            total.innerHTML = `<p class="name">Total</p><p class="price">$${Product.total}</p>`
             if (total.classList.contains("empty")) total.classList.remove("empty")
         }
         else {
@@ -74,6 +116,7 @@ class Product {
     up() {
         this.qty++
         Product.sum++
+        Product.total += this.price
         this.write()
     }
 
@@ -82,23 +125,18 @@ class Product {
         else {
             this.qty--
             Product.sum--
+            Product.total -= this.price
             this.write()
         }
     }
 
     delete() {
         Product.sum -= this.qty
+        Product.total -= this.qty * this.price
         this.qty = 0
         this.write()
         cartList.removeChild(this.item)
     }
 }
 
-getLocalStorage()
-
-const products = ids.map(el => new Product(el, names[el], prices[el], local[el]))
-
-for (let i of products) {
-    i.addItem()
-    i.write()
-}
+fetchData()

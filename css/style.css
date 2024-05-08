@@ -139,6 +139,10 @@ footer .fa-whatsapp {
   background-color: #D62976;
 }
 
+footer p {
+  text-align: center;
+}
+
 main {
   padding: 15px 0;
 }
@@ -200,7 +204,7 @@ ol {
   font-size: 30px;
   font-weight: bold;
   position: absolute;
-  z-index: 1;
+  z-index: -1;
   margin-bottom: 20px;
   padding: 0;
 }
