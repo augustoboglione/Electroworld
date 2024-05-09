@@ -2,6 +2,11 @@ main {
     padding: $padding1 0;
 }
 
+.black {
+    color: white;
+    background-color: black;
+}
+
 %title {
     text-transform: uppercase;
     margin: 0;
@@ -15,7 +20,7 @@ h1 {
     text-align: center;
 }
 
-:not(.banner, #cart) > h2 {
+:not(.banner, .cart-widget) > h2 {
     @extend %title;
     font-size: 30px;
     font-weight: bold;
@@ -36,9 +41,13 @@ ol {
     margin: 0;
 }
 
+a {
+    color: white;
+    text-decoration: none;
+}
+
 .button {
     text-transform: uppercase;
-    text-decoration: none;
     display: block;
     color: white;
     background-image: $button;
@@ -48,4 +57,38 @@ ol {
     border-radius: 50px;
     border-width: 0;
     cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    .qty {
+        font-weight: bold;
+        font-size: 30px;
+        text-align: center;
+        width: 70px;
+        padding: 0;
+    }        
+
+    img {
+        filter: invert(100%);
+        cursor: pointer;
+    }
+
+    .down, .up {
+        height: 100%;
+    }
+
+    .delete {
+        height: 80%;
+        padding: 0 0 0 15px;
+    }
 }

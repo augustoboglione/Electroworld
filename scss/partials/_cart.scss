@@ -1,12 +1,11 @@
-#cart {
+.cart-widget {
     position: relative;
     display: none;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
 }
 
-.cart-num {
+.widget-num {
     font-size: 30px;
     font-weight: bold;
     position: absolute;
@@ -20,12 +19,13 @@
     margin-bottom: 15px;
 }
 
-.cart-img {
+.widget-img {
     width: 70px;
     margin: auto;
+    cursor: pointer;
 }
 
-.cart-list {
+.widget-list {
     position: absolute;
     display: none;
     opacity: 0%;
@@ -35,10 +35,10 @@
     top: 100px;
     right: 0;
     width: 500px;
-    cursor: default;
+    z-index: 1;
 }
 
-.item, .total {
+.widget-item, .widget-total, .checkout-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,63 +46,84 @@
     margin: 15px 0;
     height: 50px;
     width: 100%;
+
+    .name {
+        font-size: 20px;
+        width: 30%;
+        padding: 0 0 0 15px;
+    }    
+
+    .price {
+        font-size: 20px;
+        width: 15%;
+        text-align: end;
+        padding: 0 15px 0 0;
+    }    
 }
 
-.name {
-    font-size: 20px;
-    width: 30%;
-    padding: 0 0 0 15px;
-}
-
-.item div {
-    display: flex;
-    align-items: center;
-    height: 100%;
-
-    img {
-        filter: invert(100%);
-        cursor: pointer;
-    }
-}
-
-.down, .up {
-    height: 100%;
-}
-
-.delete {
-    height: 80%;
-    padding: 0 0 0 15px;
-}
-
-.qty {
-    font-weight: bold;
-    font-size: 30px;
-    text-align: center;
-    width: 70px;
-    padding: 0;
-}
-
-.price {
-    font-size: 20px;
-    width: 15%;
-    text-align: end;
-    padding: 0 15px 0 0;
-}
-
-.total {
+.widget-total {
     border-top: solid 1px;
 
     .price {
         font-size: 25px;
     }
+
+    &.empty {
+        border: none;
+
+        p {
+            font-size: 20px;
+            width: 100%;
+            text-align: center;
+        }
+    }
 }
 
-.empty {
-    border: none;
+.checkout.empty {
+    .checkout-list, .buttons :last-child {
+        display: none;
+    }
+
+    .checkout-total {
+        text-align: start;
+    }
+}
+
+.checkout-list {
+    color: white;
+    background-color: black;
+    padding: 10px 0;
+}
+
+.checkout-item {
+    height: 100px;
+    justify-content: space-around;
+
+    .counter {
+        .up, .down {
+            height: 50%;
+        }
+
+        .delete {
+            height: 40%;
+        }
+    }
+}
+
+.checkout-img {
+    height: 80%;
+    border-radius: 30px;
+}
+
+.checkout-total {
+    font-size: 30px;
+    height: 100px;
+    width: 100%;
+    text-align: end;
+    display: flex;
+    align-items: center;
 
     p {
-        font-size: 20px;
         width: 100%;
-        text-align: center;
     }
 }

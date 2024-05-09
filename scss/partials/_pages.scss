@@ -1,0 +1,97 @@
+/*productos*/
+
+.productos div {
+    width: 100%;
+    padding: $padding1 0 0 0;
+    display: flex;
+    flex-direction: column;
+
+    &:first-child {
+        padding: 0;
+    }
+
+    a {
+        align-self: start;
+    }
+
+    img {
+        height: $img-height;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+/*producto*/
+
+.product {
+    display: flex;
+
+    img {
+        width: 50%;
+    }
+
+    > div {
+        display: flex;
+        flex-direction: column;
+
+        .counter {
+            height: 100px;
+
+            .up, .down {
+                height: 50%;
+            }
+    
+            .delete {
+                height: 40%;
+            }    
+        }
+
+        .price {
+            font-size: 30px;
+        }
+    }
+}
+
+/*mapa*/
+
+.mapa {
+    width: 100%;
+    padding: 15px 0;
+}
+
+/*contactos*/
+
+.contactos {
+    display: flex;
+    flex-direction: column;
+    
+    > div:last-child {
+        padding: $padding1 0 0 0;
+
+    }
+}
+
+.redes {
+    padding: 15px $padding1;
+    display: flex;
+    justify-content: space-between;
+    width: 270px;
+
+    .fa-brands {
+        width: 40px;
+        font-size: 40px;
+        padding: 10px;
+    }
+}
+
+/*form*/
+
+form div {
+    padding: 15px $padding1;
+}
+
+textarea {
+    margin: 15px $padding1;
+    width: 75%;
+    height: auto;
+}

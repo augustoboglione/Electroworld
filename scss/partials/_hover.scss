@@ -8,31 +8,31 @@ $hover-time: 0.5s;
     }
 }
 
-.cart-img {
+.widget-img {
     transition: filter $hover-time;
 }
 
-.cart-num {
+.widget-num {
     transition: color $hover-time;
 }
 
-#cart:hover {
-    .cart-img {
+.cart-widget:hover {
+    .widget-img {
         filter: invert(100%);
     }
 
-    .cart-num {
+    .widget-num {
         color: black;
     }
 
-    .cart-list {
+    .widget-list:not(.hidden) {
         display: block;
         animation: cart $hover-time;
         animation-fill-mode: forwards;
     }
 }
 
-.down, .up, .delete {
+.widget-item img {
     transition: filter $hover-time;
 
     &:hover {

@@ -75,8 +75,14 @@ $img-height: 400px;
     font-family: 'Jost', sans-serif;
 }
 
+html {
+    min-height: 100%;
+}
+
 body {
     margin: 0;
+    height: 100%;
+    position: relative;
 }
 
 @import 'partials/header';
@@ -86,6 +92,6 @@ body {
 @import 'partials/banner';
 @import 'partials/cuadros';
 @import 'partials/destacados';
-@import 'partials/mainPages';
+@import 'partials/pages';
 @import 'partials/hover';
 @import 'partials/queries';

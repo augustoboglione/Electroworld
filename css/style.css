@@ -46,8 +46,14 @@
   font-family: "Jost", sans-serif;
 }
 
+html {
+  min-height: 100%;
+}
+
 body {
   margin: 0;
+  height: 100%;
+  position: relative;
 }
 
 header {
@@ -56,6 +62,7 @@ header {
   padding: 15px;
   display: flex;
   justify-content: space-between;
+  z-index: 1;
 }
 header a img {
   width: 80px;
@@ -96,8 +103,7 @@ footer {
   color: white;
   background-image: linear-gradient(126deg, #00D4FF 0%, #00A0A0 31%, #020024 100%);
   padding: 15px;
-  display: sticky;
-  bottom: 0;
+  position: sticky;
 }
 footer p {
   text-align: center;
@@ -139,15 +145,16 @@ footer .fa-whatsapp {
   background-color: #D62976;
 }
 
-footer p {
-  text-align: center;
-}
-
 main {
   padding: 15px 0;
 }
 
-h3, .banner h2, :not(.banner, #cart) > h2, h1 {
+.black {
+  color: white;
+  background-color: black;
+}
+
+h3, .banner h2, :not(.banner, .cart-widget) > h2, h1 {
   text-transform: uppercase;
   margin: 0;
   padding: 15px 15px;
@@ -159,7 +166,7 @@ h1 {
   text-align: center;
 }
 
-:not(.banner, #cart) > h2 {
+:not(.banner, .cart-widget) > h2 {
   font-size: 30px;
   font-weight: bold;
 }
@@ -178,9 +185,13 @@ ol {
   margin: 0;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
 .button {
   text-transform: uppercase;
-  text-decoration: none;
   display: block;
   color: white;
   background-image: linear-gradient(to bottom right, #00A0A0, #005050);
@@ -192,15 +203,44 @@ ol {
   cursor: pointer;
 }
 
-#cart {
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.counter .qty {
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  width: 70px;
+  padding: 0;
+}
+.counter img {
+  filter: invert(100%);
+  cursor: pointer;
+}
+.counter .down, .counter .up {
+  height: 100%;
+}
+.counter .delete {
+  height: 80%;
+  padding: 0 0 0 15px;
+}
+
+.cart-widget {
   position: relative;
   display: none;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 }
 
-.cart-num {
+.widget-num {
   font-size: 30px;
   font-weight: bold;
   position: absolute;
@@ -214,12 +254,13 @@ ol {
   margin-bottom: 15px;
 }
 
-.cart-img {
+.widget-img {
   width: 70px;
   margin: auto;
+  cursor: pointer;
 }
 
-.cart-list {
+.widget-list {
   position: absolute;
   display: none;
   opacity: 0%;
@@ -229,10 +270,10 @@ ol {
   top: 100px;
   right: 0;
   width: 500px;
-  cursor: default;
+  z-index: 1;
 }
 
-.item, .total {
+.widget-item, .widget-total, .checkout-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -241,61 +282,72 @@ ol {
   height: 50px;
   width: 100%;
 }
-
-.name {
+.widget-item .name, .widget-total .name, .checkout-item .name {
   font-size: 20px;
   width: 30%;
   padding: 0 0 0 15px;
 }
-
-.item div {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-.item div img {
-  filter: invert(100%);
-  cursor: pointer;
-}
-
-.down, .up {
-  height: 100%;
-}
-
-.delete {
-  height: 80%;
-  padding: 0 0 0 15px;
-}
-
-.qty {
-  font-weight: bold;
-  font-size: 30px;
-  text-align: center;
-  width: 70px;
-  padding: 0;
-}
-
-.price {
+.widget-item .price, .widget-total .price, .checkout-item .price {
   font-size: 20px;
   width: 15%;
   text-align: end;
   padding: 0 15px 0 0;
 }
 
-.total {
+.widget-total {
   border-top: solid 1px;
 }
-.total .price {
+.widget-total .price {
   font-size: 25px;
 }
-
-.empty {
+.widget-total.empty {
   border: none;
 }
-.empty p {
+.widget-total.empty p {
   font-size: 20px;
   width: 100%;
   text-align: center;
+}
+
+.checkout.empty .checkout-list, .checkout.empty .buttons :last-child {
+  display: none;
+}
+.checkout.empty .checkout-total {
+  text-align: start;
+}
+
+.checkout-list {
+  color: white;
+  background-color: black;
+  padding: 10px 0;
+}
+
+.checkout-item {
+  height: 100px;
+  justify-content: space-around;
+}
+.checkout-item .counter .up, .checkout-item .counter .down {
+  height: 50%;
+}
+.checkout-item .counter .delete {
+  height: 40%;
+}
+
+.checkout-img {
+  height: 80%;
+  border-radius: 30px;
+}
+
+.checkout-total {
+  font-size: 30px;
+  height: 100px;
+  width: 100%;
+  text-align: end;
+  display: flex;
+  align-items: center;
+}
+.checkout-total p {
+  width: 100%;
 }
 
 .banner {
@@ -307,6 +359,7 @@ ol {
   text-align: center;
   color: white;
   background-size: 1400px;
+  z-index: -1;
 }
 .banner h1 {
   padding: 15px 0 0 0;
@@ -392,7 +445,7 @@ ol {
   grid-area: txt3;
 }
 
-/*main productos*/
+/*productos*/
 .productos div {
   width: 100%;
   padding: 15px 0 0 0;
@@ -411,13 +464,37 @@ ol {
   object-fit: cover;
 }
 
-/*main mapa*/
+/*producto*/
+.product {
+  display: flex;
+}
+.product img {
+  width: 50%;
+}
+.product > div {
+  display: flex;
+  flex-direction: column;
+}
+.product > div .counter {
+  height: 100px;
+}
+.product > div .counter .up, .product > div .counter .down {
+  height: 50%;
+}
+.product > div .counter .delete {
+  height: 40%;
+}
+.product > div .price {
+  font-size: 30px;
+}
+
+/*mapa*/
 .mapa {
   width: 100%;
   padding: 15px 0;
 }
 
-/*main contactos*/
+/*contactos*/
 .contactos {
   display: flex;
   flex-direction: column;
@@ -456,30 +533,30 @@ textarea {
   color: black;
 }
 
-.cart-img {
+.widget-img {
   transition: filter 0.5s;
 }
 
-.cart-num {
+.widget-num {
   transition: color 0.5s;
 }
 
-#cart:hover .cart-img {
+.cart-widget:hover .widget-img {
   filter: invert(100%);
 }
-#cart:hover .cart-num {
+.cart-widget:hover .widget-num {
   color: black;
 }
-#cart:hover .cart-list {
+.cart-widget:hover .widget-list:not(.hidden) {
   display: block;
   animation: cart 0.5s;
   animation-fill-mode: forwards;
 }
 
-.down, .up, .delete {
+.widget-item img {
   transition: filter 0.5s;
 }
-.down:hover, .up:hover, .delete:hover {
+.widget-item img:hover {
   filter: invert(0%);
 }
 
@@ -505,7 +582,7 @@ textarea {
   main, .cuadros, .destacados {
     padding: 30px 0;
   }
-  h1, :not(.banner, #cart) > h2, p, .list, form div, .redes {
+  h1, :not(.banner, .cart-widget) > h2, p, .list, form div, .redes {
     padding: 15px 30px;
   }
   h3, .banner h2 {
@@ -536,7 +613,7 @@ textarea {
   .nav-link {
     font-size: 14px;
   }
-  #cart {
+  .cart-widget {
     display: flex;
   }
   .cuadros {
@@ -564,7 +641,7 @@ textarea {
   main, .cuadros, .destacados {
     padding: 40px 0;
   }
-  h1, :not(.banner, #cart) > h2, p, .list, form div, .redes {
+  h1, :not(.banner, .cart-widget) > h2, p, .list, form div, .redes {
     padding: 15px 40px;
   }
   h3, .banner h2 {

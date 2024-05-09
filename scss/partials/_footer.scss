@@ -2,8 +2,7 @@ footer {
     color: white;
     background-image: $gradient-footer;
     padding: $padding1;
-    display: sticky;
-    bottom: 0;
+    position: sticky;
 
     p {
         text-align: center;
@@ -44,8 +43,4 @@ footer .fa-whatsapp {
 
 .fa-instagram {
     background-color: $instagram;
-}
-
-footer p {
-    text-align: center;
 }

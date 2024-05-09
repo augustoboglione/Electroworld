@@ -4,6 +4,7 @@ header {
     padding: $padding1;
     display: flex;
     justify-content: space-between;
+    z-index: 1;
 
     a img {
         width: 80px;

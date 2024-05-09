@@ -2,7 +2,7 @@
     "id": "processor",
     "name": "Procesador",
     "price": 3,
-    "stock": 4,
+    "stock": 10,
     "highlighted": 2,
     "description": "Nos enorgullece ofrecer una selección cuidadosamente curada de procesadores de última generación que impulsarán tus proyectos y mejorarán el rendimiento de tus dispositivos electrónicos. Descubrí la potencia de procesadores de marcas líderes, diseñados para satisfacer las demandas de aplicaciones intensivas y desafíos computacionales avanzados.",
     "short": "Descubrí la potencia de procesadores de marcas líderes, diseñados para satisfacer las demandas de aplicaciones intensivas y desafíos computacionales avanzados."
@@ -11,7 +11,7 @@
     "id": "motherboard",
     "name": "Motherboard",
     "price": 5,
-    "stock": 4,
+    "stock": 15,
     "highlighted": 3,
     "description": "Nuestra selección de motherboards está diseñada para proporcionar la base sólida que necesitás para construir y potenciar tu sistema electrónico. Contamos con una gama diversa de motherboards que cumplen con los estándares más exigentes, brindando confiabilidad, rendimiento y versatilidad para satisfacer todas tus necesidades.",
     "short": "Contamos con una gama diversa de motherboards que cumplen con los estándares más exigentes, brindando confiabilidad, rendimiento y versatilidad para satisfacer todas tus necesidades."
@@ -20,7 +20,7 @@
     "id": "ssd",
     "name": "Tarjeta SSD",
     "price": 10,
-    "stock": 4,
+    "stock": 11,
     "highlighted": 0,
     "description": "Bienvenido al mundo de la velocidad y la eficiencia con nuestras unidades de estado sólido (SSD). Nuestras tarjetas SSD están diseñadas para elevar la experiencia de almacenamiento a nuevos niveles, ofreciendo velocidad, confiabilidad y capacidad excepcionales para satisfacer las demandas de tus proyectos. Presentamos una selección de SSD que transformarán la forma en que interactuás con tus datos y aplicaciones."
 },
@@ -28,7 +28,7 @@
     "id": "ram",
     "name": "Tarjeta RAM",
     "price": 8,
-    "stock": 4,
+    "stock": 20,
     "highlighted": 0,
     "description": "Bienvenido al mundo de la velocidad y la eficiencia multitarea con nuestras memorias RAM. Nuestras tarjetas RAM están diseñadas para ofrecer un rendimiento excepcional y una capacidad de respuesta instantánea, proporcionando el impulso necesario para que tus aplicaciones y proyectos funcionen sin problemas. Tenemos una amplia selección de memorias RAM."
 },
@@ -36,7 +36,7 @@
     "id": "graphics",
     "name": "Tarjeta gráfica",
     "price": 11,
-    "stock": 4,
+    "stock": 30,
     "highlighted": 1,
     "description": "Presentamos la pieza fundamental para dar vida a tus visuales y potenciar la experiencia visual de tus computadoras: Nuestras tarjetas gráficas están diseñadas para elevar el rendimiento gráfico y ofrecerte una inmersión total en el mundo de la electrónica. Ofrecemos una selección cuidadosamente elegida de tarjetas gráficas de alta gama que llevan tus proyectos y experiencias multimedia a nuevos horizontes.",
     "short": "Ofrecemos una selección cuidadosamente elegida de tarjetas gráficas de alta gama que llevan tus proyectos y experiencias multimedia a nuevos horizontes."
