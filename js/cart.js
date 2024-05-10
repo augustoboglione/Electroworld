@@ -166,15 +166,18 @@ class Product {
         this.button = document.getElementById(id)
         if (this.button) this.button.onclick = this.addToCart.bind(this)
 
+        this.imgUrl = "../img"
+        if (window.location.href.match(/Electroworld\/$/)) this.imgUrl = "./img" 
+
         this.widgetItem = document.createElement("div")
         this.widgetItem.className = "widget-item"
         this.widgetItem.innerHTML = 
         `<p class="name">${name}</p>
         <div class="counter">
-            <img class="down" src="../img/minus.svg" alt="Sustraer">
+            <img class="down" src="${this.imgUrl}/minus.svg" alt="Sustraer">
             <p class="qty"></p>
-            <img class="up" src="../img/plus.svg" alt="Agregar">
-            <img class="delete" src="../img/delete.svg" alt="Eliminar">
+            <img class="up" src="${this.imgUrl}/plus.svg" alt="Agregar">
+            <img class="delete" src="${this.imgUrl}/delete.svg" alt="Eliminar">
         </div>
         <p class="price"></p>`
 
