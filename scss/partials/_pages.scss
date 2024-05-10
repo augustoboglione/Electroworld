@@ -34,19 +34,23 @@
         display: flex;
         flex-direction: column;
 
-        .counter {
+        .counter-container {
             height: 100px;
+            padding-right: 40px;
+        }
+
+        .counter {
+            justify-content: flex-end;
+            height: 100%;
 
             .up, .down {
                 height: 50%;
+                width: auto;
             }
-    
-            .delete {
-                height: 40%;
-            }    
         }
 
         .price {
+            text-align: end;
             font-size: 30px;
         }
     }

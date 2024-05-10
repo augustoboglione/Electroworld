@@ -49,14 +49,19 @@ $hover-time: 0.5s;
     }
 }
 
-.button {
+.button, .sign button.button, .sign:hover button.button {
     transition: all $hover-time;
 
     &:hover {
         color: black;
+        background-image: $button;
     }
 
     &:active {
         background-image: $button-click;
+    }
+
+    &:focus {
+        box-shadow: none;
     }
 }

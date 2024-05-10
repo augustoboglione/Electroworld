@@ -190,7 +190,7 @@ a {
   text-decoration: none;
 }
 
-.button {
+.button, .sign button.button {
   text-transform: uppercase;
   display: block;
   color: white;
@@ -231,6 +231,10 @@ a {
 .counter .delete {
   height: 80%;
   padding: 0 0 0 15px;
+}
+
+.sign {
+  border-radius: 30px;
 }
 
 .cart-widget {
@@ -475,16 +479,20 @@ a {
   display: flex;
   flex-direction: column;
 }
-.product > div .counter {
+.product > div .counter-container {
   height: 100px;
+  padding-right: 40px;
+}
+.product > div .counter {
+  justify-content: flex-end;
+  height: 100%;
 }
 .product > div .counter .up, .product > div .counter .down {
   height: 50%;
-}
-.product > div .counter .delete {
-  height: 40%;
+  width: auto;
 }
 .product > div .price {
+  text-align: end;
   font-size: 30px;
 }
 
@@ -568,14 +576,18 @@ textarea {
   color: black;
 }
 
-.button {
+.button, .sign button.button, .sign:hover button.button {
   transition: all 0.5s;
 }
-.button:hover {
+.button:hover, .sign button.button:hover, .sign:hover button.button:hover {
   color: black;
+  background-image: linear-gradient(to bottom right, #00A0A0, #005050);
 }
-.button:active {
+.button:active, .sign button.button:active, .sign:hover button.button:active {
   background-image: linear-gradient(to top left, #00A0A0, #005050);
+}
+.button:focus, .sign button.button:focus, .sign:hover button.button:focus {
+  box-shadow: none;
 }
 
 @media only screen and (min-width: 768px) {

@@ -46,7 +46,7 @@ a {
     text-decoration: none;
 }
 
-.button {
+.button, .sign button.button {
     text-transform: uppercase;
     display: block;
     color: white;
@@ -91,4 +91,8 @@ a {
         height: 80%;
         padding: 0 0 0 15px;
     }
+}
+
+.sign {
+    border-radius: 30px;
 }

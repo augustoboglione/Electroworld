@@ -5,10 +5,31 @@ const widgetTotal = widgetList.querySelector(".widget-total")
 const checkout = document.querySelector(".checkout")
 const checkoutList = document.querySelector(".checkout-list")
 const checkoutTotal = document.querySelector(".checkout-total")
+const confirm = document.querySelector(".confirm")
 
 let products
 
 const local = {}
+
+const sign = (titleText, text, icon, showCancelButton, callback = null) => {
+    let confirmButtonText, cancelButtonText
+
+    if (showCancelButton) {
+        confirmButtonText = "Aceptar"
+        cancelButtonText = "Cancelar"
+    } else confirmButtonText = "Aceptar"
+
+    Swal.fire({
+        titleText, text, icon, showCancelButton, confirmButtonText, cancelButtonText,
+        confirmButtonColor: "transparent",
+        cancelButtonColor: "transparent",
+        customClass: {
+            popup: "sign",
+            confirmButton: "button",
+            cancelButton: "button"
+        }
+    }).then(result => result.isConfirmed && callback ? callback() : null)
+}
 
 const setProducts = data => {
     const container = document.querySelector("section.productos")
@@ -50,7 +71,7 @@ const setHighlighted = data => {
 
 const setProduct = data => {
     try {
-        const id = window.location.search.match(/(?<=\?id=)\w+/)[0]
+        const id = window.location.search.match(/(?<=id=)\w+/)[0]
         const product = data.find(product => product.id == id)
 
         if (product) {
@@ -66,18 +87,17 @@ const setProduct = data => {
             const div = document.createElement("div")
             div.innerHTML =
             `<p>${product.description}</p>
-            <div class="buttons">
+            <p class="price">$${product.price}</p>
+            <div class="counter-container">
                 <div class="counter">
                     <img class="down" src="../img/minus.svg" alt="Sustraer">
                     <p class="qty">1</p>
                     <img class="up" src="../img/plus.svg" alt="Agregar">
                 </div>
-                <p class="price">$${product.price}</p>
             </div>
-
             <div class="buttons">
-                <a class="button" id="${product.id}">Agregar al carrito</a>
                 <a class="button" href="productos.html">Seguir comprando</a>
+                <a class="button" id="${product.id}">Agregar al carrito</a>
             </div>`
     
             container.append(img, div)
@@ -101,8 +121,6 @@ const fetchData = async () => {
     setHighlighted(data)
     const product = setProduct(data)
 
-    data.forEach(product => new Product(product.id, product.name, product.price, product.stock, local[product.id]))
-
     if (product) {    
         let counter = 1
 
@@ -123,6 +141,8 @@ const fetchData = async () => {
         document.querySelector(".product .down").onclick = down
         document.querySelector(".product .up").onclick = up
     }
+
+    data.forEach(product => new Product(product.id, product.name, product.price, product.stock, local[product.id]))
 }
 
 class Product {
@@ -138,8 +158,10 @@ class Product {
         Product.sum += qty
         Product.total += qty * price
 
+        this.counter = document.querySelector(".product .qty")
+
         this.button = document.getElementById(id)
-        if (this.button != null) this.button.onclick = this.addToCart.bind(this)
+        if (this.button) this.button.onclick = this.addToCart.bind(this)
 
         this.widgetItem = document.createElement("div")
         this.widgetItem.className = "widget-item"
@@ -153,18 +175,20 @@ class Product {
         </div>
         <p class="price"></p>`
 
-        this.checkoutItem = document.createElement("div")
-        this.checkoutItem.className = "checkout-item"
-        this.checkoutItem.innerHTML = 
-        `<img class="checkout-img" src="../img/${id}.jpg" alt="${name}">
-        <a class="name" href="producto.html?id=${id}">${name}</a>
-        <div class="counter">
-            <img class="down" src="../img/minus.svg" alt="Sustraer">
-            <p class="qty"></p>
-            <img class="up" src="../img/plus.svg" alt="Agregar">
-            <img class="delete" src="../img/delete.svg" alt="Eliminar">
-        </div>
-        <p class="price"></p>`
+        if (checkout) {
+            this.checkoutItem = document.createElement("div")
+            this.checkoutItem.className = "checkout-item"
+            this.checkoutItem.innerHTML = 
+            `<img class="checkout-img" src="../img/${id}.jpg" alt="${name}">
+            <a class="name" href="producto.html?id=${id}">${name}</a>
+            <div class="counter">
+                <img class="down" src="../img/minus.svg" alt="Sustraer">
+                <p class="qty"></p>
+                <img class="up" src="../img/plus.svg" alt="Agregar">
+                <img class="delete" src="../img/delete.svg" alt="Eliminar">
+            </div>
+            <p class="price"></p>`
+        }
 
         this.addItem()
         this.write()
@@ -232,7 +256,8 @@ class Product {
     }
 
     up(n) {
-        if (this.qty + n > this.stock) this.limit()
+        if (this.qty + n > this.stock) sign("Atención", "Por el momento no contamos con más stock del producto.", "warning", false)
+
         else {
             this.qty += n
             Product.sum += n
@@ -242,22 +267,27 @@ class Product {
     }
     
     addToCart() {
-        this.up(parseInt(document.querySelector(".product .qty").textContent))
+        this.up(parseInt(this.counter.textContent))
         this.addItem()
     }
 
     delete() {
-        Product.sum -= this.qty
-        Product.total -= this.qty * this.price
-        this.qty = 0
-        this.write()
-        widgetList.removeChild(this.widgetItem)
-        if (checkout) checkoutList.removeChild(this.checkoutItem)
-    }
-
-    limit() {
-        alert("No more stock left")
+        sign("Eliminar", `¿Quiere eliminar ${this.name} del carrito?`, "error", true, () => {
+            Product.sum -= this.qty
+            Product.total -= this.qty * this.price
+            this.qty = 0
+            this.write()
+            widgetList.removeChild(this.widgetItem)
+            if (checkout) checkoutList.removeChild(this.checkoutItem)
+        })
     }
 }
 
 fetchData()
+
+if (confirm) confirm.onclick = () => sign("Confirmar", "¿Quiere confirmar la compra?", "question", true, () => {
+    sign("Gracias", "¡Muchas gracias por su compra!", "success", false, () => {
+        localStorage.clear()
+        window.location.href = "../index.html"
+    })
+})
