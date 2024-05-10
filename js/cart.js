@@ -117,7 +117,7 @@ const fetchData = async () => {
     let url = "../api/data.json"
     if (window.location.href.match("index.html")) url = "./api/data.json"
 
-    let data = await (await fetch("../api/data.json")).json()
+    let data = await (await fetch(url)).json()
     data.forEach(product => local[product.id] = localStorage.getItem(product.id) ? parseInt(localStorage.getItem(product.id)) : 0)
 
     setProducts(data)
